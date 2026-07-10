@@ -16,16 +16,17 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20 md:pt-24"  // <-- ADDED pt-20 md:pt-24 to push content below navbar
     >
       {/* Background Effects — layered glow instead of flat gradient */}
-    <div className="absolute inset-0 overflow-hidden bg-background hero-glow">
-  <div className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-primary/15 rounded-full blur-3xl animate-pulse-slow" />
-  <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-secondary/15 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] bg-accent/8 rounded-full blur-3xl" />
-  <div className="absolute top-16 right-1/4 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-float" />
-  <div className="absolute bottom-24 left-1/5 w-56 h-56 bg-secondary/12 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-</div>
+      <div className="absolute inset-0 overflow-hidden bg-background hero-glow">
+        <div className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-primary/15 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-secondary/15 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] bg-accent/8 rounded-full blur-3xl" />
+        <div className="absolute top-16 right-1/4 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-24 left-1/5 w-56 h-56 bg-secondary/12 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      </div>
+
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-grid" />
 
@@ -100,7 +101,6 @@ export default function Hero() {
             <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
           </Button>
           <a
-          
             href="/resume/resume.pdf"
             download="Hasnain_Jaffer_Resume.pdf"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-8 glass text-foreground hover:bg-white/10 transition-all w-full sm:w-auto"
@@ -118,7 +118,6 @@ export default function Hero() {
           className="flex items-center justify-center gap-4"
         >
           <a
-          
             href="https://github.com/Hasnain-Jaffer"
             target="_blank"
             rel="noopener noreferrer"
@@ -128,7 +127,6 @@ export default function Hero() {
             <Github className="w-5 h-5" />
           </a>
           <a
-          
             href="https://linkedin.com/in/hasnain-jaffer-dev"
             target="_blank"
             rel="noopener noreferrer"
@@ -138,7 +136,6 @@ export default function Hero() {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-          
             href="mailto:hasnainkaim10@gmail.com"
             className="p-3 rounded-xl glass text-muted-foreground hover:text-accent hover:bg-accent/10 transition-all duration-300 hover:scale-110"
             aria-label="Email"
@@ -152,7 +149,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"  // <-- REMOVED -translate-y-1/2 which was pushing it up
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

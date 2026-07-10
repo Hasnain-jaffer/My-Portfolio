@@ -75,7 +75,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4 min-w-0"  // <-- ADDED min-w-0 here
+            className="space-y-4 min-w-0"
           >
             {contactLinks.map((link, index) => {
               const colors = colorMap[link.color];
@@ -86,7 +86,7 @@ export default function Contact() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 4 }}
-                  className={`flex items-center gap-4 p-5 rounded-xl ${colors.bg} border ${colors.border} ${colors.hover} transition-all duration-300 group cursor-pointer min-w-0`}  // <-- ADDED min-w-0 here
+                  className={`flex items-center gap-4 p-5 rounded-xl ${colors.bg} border ${colors.border} ${colors.hover} transition-all duration-300 group cursor-pointer min-w-0`}
                 >
                   <div className={`p-2.5 rounded-lg ${colors.bg} border ${colors.border} shrink-0`}>
                     <link.icon className={`w-5 h-5 ${colors.text}`} />
@@ -100,9 +100,9 @@ export default function Contact() {
               );
 
               return link.isMailto ? (
-                <a key={link.label} href={link.href} className="block min-w-0">{cardContent}</a>  // <-- ADDED min-w-0 here
+                <a key={link.label} href={link.href} className="block min-w-0">{cardContent}</a>
               ) : (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="block min-w-0">{cardContent}</a>  // <-- ADDED min-w-0 here
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="block min-w-0">{cardContent}</a>
               );
             })}
 
@@ -215,7 +215,7 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Location */}
+        {/* Location - FIXED: icon stays with text, proper wrapping */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -223,9 +223,9 @@ export default function Contact() {
           transition={{ delay: 0.4 }}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-2 text-muted-foreground text-sm">
-            <MapPin className="w-4 h-4" />
-            <span>Based in Karachi, Pakistan | Open to Remote Opportunities</span>
+          <div className="inline-flex items-start gap-2 text-muted-foreground text-sm max-w-xs mx-auto sm:max-w-none">  {/* <-- CHANGED: items-center to items-start, added max-w-xs for mobile */}
+            <MapPin className="w-4 h-4 mt-0.5 shrink-0" />  {/* <-- ADDED mt-0.5 and shrink-0 */}
+            <span className="text-left sm:text-center">Based in Karachi, Pakistan | Open to Remote Opportunities</span>  {/* <-- ADDED text-left for mobile alignment */}
           </div>
         </motion.div>
       </div>

@@ -58,8 +58,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${jakarta.variable} ${inter.variable} font-body antialiased bg-background text-foreground`}
-      >
+  className={`${jakarta.variable} ${inter.variable} font-body antialiased bg-background text-foreground overflow-x-hidden`}
+>
         {children}
       </body>
     </html>

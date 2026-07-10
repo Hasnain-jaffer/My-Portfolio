@@ -19,14 +19,13 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Background Effects — layered glow instead of flat gradient */}
-    <div className="absolute inset-0 bg-background hero-glow">
+    <div className="absolute inset-0 overflow-hidden bg-background hero-glow">
   <div className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-primary/15 rounded-full blur-3xl animate-pulse-slow" />
   <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-secondary/15 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] bg-accent/8 rounded-full blur-3xl" />
   <div className="absolute top-16 right-1/4 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-float" />
   <div className="absolute bottom-24 left-1/5 w-56 h-56 bg-secondary/12 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
 </div>
-
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-grid" />
 

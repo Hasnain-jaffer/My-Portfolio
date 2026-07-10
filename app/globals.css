@@ -70,12 +70,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+  @apply bg-background text-foreground font-body overflow-x-hidden;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
   /* Apply heading font to all heading tags automatically — no per-component edits needed */
   h1, h2, h3, h4, h5, h6 {

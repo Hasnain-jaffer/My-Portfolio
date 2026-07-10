@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -50,6 +50,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,8 +64,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-  className={`${jakarta.variable} ${inter.variable} font-body antialiased bg-background text-foreground overflow-x-hidden`}
->
+        className={`${jakarta.variable} ${inter.variable} font-body antialiased bg-background text-foreground overflow-x-hidden`}
+      >
         {children}
       </body>
     </html>

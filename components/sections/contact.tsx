@@ -75,7 +75,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 min-w-0"  // <-- ADDED min-w-0 here
           >
             {contactLinks.map((link, index) => {
               const colors = colorMap[link.color];
@@ -86,23 +86,23 @@ export default function Contact() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 4 }}
-                  className={`flex items-center gap-4 p-5 rounded-xl ${colors.bg} border ${colors.border} ${colors.hover} transition-all duration-300 group cursor-pointer`}
+                  className={`flex items-center gap-4 p-5 rounded-xl ${colors.bg} border ${colors.border} ${colors.hover} transition-all duration-300 group cursor-pointer min-w-0`}  // <-- ADDED min-w-0 here
                 >
-                  <div className={`p-2.5 rounded-lg ${colors.bg} border ${colors.border}`}>
+                  <div className={`p-2.5 rounded-lg ${colors.bg} border ${colors.border} shrink-0`}>
                     <link.icon className={`w-5 h-5 ${colors.text}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-sm text-muted-foreground mb-0.5">{link.label}</div>
                     <div className="text-foreground font-medium truncate">{link.value}</div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors shrink-0" />
                 </motion.div>
               );
 
               return link.isMailto ? (
-                <a key={link.label} href={link.href} className="block">{cardContent}</a>
+                <a key={link.label} href={link.href} className="block min-w-0">{cardContent}</a>  // <-- ADDED min-w-0 here
               ) : (
-                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="block">{cardContent}</a>
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="block min-w-0">{cardContent}</a>  // <-- ADDED min-w-0 here
               );
             })}
 
@@ -113,7 +113,6 @@ export default function Contact() {
               transition={{ delay: 0.3 }}
             >
               <a
-              
                 href="/resume/resume.pdf"
                 download="Hasnain_Jaffer_Resume.pdf"
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-11 px-8 w-full mt-2 bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all shadow-lg shadow-primary/20"

@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  /* ---- NEW DARK THEME: layered depth + dual accent ---- */
+  .dark {
+    /* base is near-black navy, NOT the same as cards */
+    --background: 224 47% 5%;        /* ~ #070a12 */
+    --foreground: 210 40% 96%;
+
+    /* card sits one clear step above background */
+    --card: 222 40% 9%;              /* ~ #10141f */
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 40% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Primary accent: electric cyan/blue (your existing brand) */
+    --primary: 199 89% 58%;          /* vivid sky blue */
+    --primary-foreground: 222 47% 6%;
+
+    /* Secondary accent: warm violet — gives contrast against cyan */
+    --secondary: 262 60% 62%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* muted = subtle elevated surface, clearly lighter than card */
+    --muted: 222 30% 14%;            /* ~ #181e2c */
+    --muted-foreground: 215 20% 68%;
+
+    /* accent = amber, used sparingly for highlights/badges */
+    --accent: 38 92% 60%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* borders visible against card, not invisible */
+    --border: 222 25% 20%;           /* ~ #262e42 */
+    --input: 222 25% 18%;
+    --ring: 199 89% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Apply heading font to all heading tags automatically — no per-component edits needed */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-xl border border-white/5;
+  }
+
+  /* Two-tone gradient text: cyan -> violet instead of cyan monotone */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-cyan-300 to-violet-400;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(167, 139, 250, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* NEW: elevated card surface for hover/active states */
+  .surface-elevated {
+    @apply bg-muted/60 border border-white/10;
+  }
+
+  /* NEW: hero background glow */
+.hero-glow {
+  background:
+    radial-gradient(900px circle at 12% 15%, rgba(56, 189, 248, 0.22), transparent 55%),
+    radial-gradient(800px circle at 88% 20%, rgba(167, 139, 250, 0.20), transparent 55%),
+    radial-gradient(1000px circle at 50% 95%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(600px circle at 50% 45%, rgba(251, 191, 36, 0.07), transparent 60%);
+}
+
+  /* NEW: subtle grid pattern for hero/sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}

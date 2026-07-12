@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Download, ExternalLink, Github, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowDown,
+  Download,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Mail,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/animated-text";
 
@@ -16,15 +23,21 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20 md:pt-24"  // <-- ADDED pt-20 md:pt-24 to push content below navbar
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20 md:pt-24" // <-- ADDED pt-20 md:pt-24 to push content below navbar
     >
       {/* Background Effects — layered glow instead of flat gradient */}
       <div className="absolute inset-0 overflow-hidden bg-background hero-glow">
         <div className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-primary/15 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-secondary/15 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] bg-secondary/15 rounded-full blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "1.5s" }}
+        />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] bg-accent/8 rounded-full blur-3xl" />
         <div className="absolute top-16 right-1/4 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-24 left-1/5 w-56 h-56 bg-secondary/12 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div
+          className="absolute bottom-24 left-1/5 w-56 h-56 bg-secondary/12 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        />
       </div>
 
       {/* Grid Pattern */}
@@ -80,9 +93,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Final-year BSIT student and passionate Full Stack Developer specializing in
-          the MERN Stack. I build scalable, high-performance web applications with
-          modern technologies and cloud deployment expertise.
+          Full Stack Developer specializing in the MERN Stack. I build scalable,
+          high-performance web applications using React, Node.js, MongoDB, and
+          modern cloud deployment — currently open to full-time and freelance
+          opportunities.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -95,7 +109,11 @@ export default function Hero() {
           <Button
             size="lg"
             className="group w-full sm:w-auto bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20 border-0"
-            onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .querySelector("#projects")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             <span>View Projects</span>
             <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
@@ -149,7 +167,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"  // <-- REMOVED -translate-y-1/2 which was pushing it up
+          className="absolute bottom-8 left-1/2 -translate-x-1/2" // <-- REMOVED -translate-y-1/2 which was pushing it up
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

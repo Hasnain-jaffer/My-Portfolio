@@ -225,11 +225,7 @@ export default function Contact() {
         >
           <div className="inline-flex items-start gap-2 text-muted-foreground text-sm max-w-xs mx-auto sm:max-w-none">  {/* <-- CHANGED: items-center to items-start, added max-w-xs for mobile */}
             <MapPin className="w-4 h-4 mt-0.5 shrink-0" />  {/* <-- ADDED mt-0.5 and shrink-0 */}
-<<<<<<< HEAD
             <span className="text-left sm:text-center">Based in Pakistan | Remote Freelance Developer</span>          
-=======
-            <span className="text-left sm:text-center">Based in Tando Allah Yar, Pakistan | Open to Remote Opportunities</span>  {/* <-- ADDED text-left for mobile alignment */}
->>>>>>> be5a876eafa8ff9c5da48ec1c33b284e2bd5769b
           </div>
         </motion.div>
       </div>

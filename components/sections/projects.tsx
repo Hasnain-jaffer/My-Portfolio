@@ -7,95 +7,129 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const projectList = [
-  {
-    title: "Real-Time Device Tracker",
+    {
+    title: "Shopzone",
     description:
-      "A real-time GPS tracking application that monitors device locations with live map updates, geofencing alerts, and historical route visualization.",
-    icon: MapPin,
-    technologies: ["Node.js", "Express", "Socket.io", "MongoDB", "Leaflet.js", "HTML/CSS/JS"],
-    features: [
-      "Real-time location tracking via WebSockets",
-      "Interactive map with Leaflet.js",
-      "Geofencing and boundary alerts",
-      "Historical route playback",
-      "Responsive dashboard UI",
-    ],
-    github: "https://github.com/Hasnain-jaffer/real-time-device-tracker",
-    live: "https://your-device-tracker.vercel.app",
-    color: "primary",
-    mockup: "map",
-  },
-  {
-    title: "E-Commerce Full Stack App",
-    description:
-      "A complete e-commerce platform with user authentication, product catalog, shopping cart, order management, and payment integration.",
+      "A production-ready full-stack e-commerce platform built with the MERN stack featuring secure JWT authentication, role-based access control, product catalog, shopping cart, responsive UI, and an admin dashboard for managing products and users.",
     icon: ShoppingCart,
-    technologies: ["React", "Node.js", "Express", "MongoDB", "JWT", "Tailwind CSS"],
-    features: [
-      "User authentication & authorization with JWT",
-      "Product catalog with search & filters",
-      "Shopping cart with persistent state",
-      "Order management & tracking",
-      "Admin dashboard for inventory",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS"
     ],
-    github: "https://github.com/Hasnain-jaffer/ecommerce-fullstack-design",
-    live: "https://your-ecommerce.vercel.app",
+    features: [
+      "Secure JWT authentication & authorization",
+      "Role-based admin dashboard",
+      "Shopping cart & product management",
+      "RESTful API architecture",
+      "Responsive modern UI"
+    ],
+    github: "https://github.com/Hasnain-jaffer/Shopzone",
+    live: "https://shopzone-ochre.vercel.app/",
+    color: "primary",
+    mockup: "grid",
+  },
+
+  {
+    title: "Retail Flow",
+    description:
+      "A modern retail management application that streamlines inventory, product management, authentication, and business workflows with a scalable full-stack architecture and responsive dashboard.",
+    icon: Layers,
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "JWT"
+    ],
+    features: [
+      "Inventory & product management",
+      "Secure authentication system",
+      "Responsive admin dashboard",
+      "Modern scalable architecture",
+      "REST API integration"
+    ],
+    github: "https://github.com/Hasnain-jaffer/The-Retail-Flow-App",
+    live: "https://the-retail-flow-app.vercel.app/",
     color: "secondary",
     mockup: "grid",
   },
+
   {
-    title: "BitLinks",
+    title: "Mehran Fast Food",
     description:
-      "A URL shortening service that generates compact links, tracks click analytics, and provides custom alias support with QR code generation.",
-    icon: Link2,
-    technologies: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS", "REST API"],
-    features: [
-      "Short URL generation with custom aliases",
-      "Click analytics & geographic tracking",
-      "QR code generation for each link",
-      "User dashboard with link management",
-      "Rate limiting & spam protection",
+      "A complete restaurant ordering platform that allows customers to browse menus, place food orders, manage carts, and provides an intuitive admin interface for restaurant operations.",
+    icon: ShoppingCart,
+    technologies: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS"
     ],
-    github: "https://github.com/Hasnain-jaffer/bitlinks-url-shortner",
-    live: "https://bitlinks-demo.vercel.app",
+    features: [
+      "Restaurant menu management",
+      "Online ordering system",
+      "Shopping cart functionality",
+      "Admin management panel",
+      "Responsive user experience"
+    ],
+    github: "https://github.com/Hasnain-jaffer/Mehran-Fast-Food",
+    live: "https://mehran-fast-food-lake.vercel.app/",
     color: "emerald",
-    mockup: "form",
+    mockup: "cards",
   },
+
   {
-    title: "Spotify Clone",
+    title: "Recipe Book",
     description:
-      "A music streaming application clone featuring playlist management, audio playback controls, search functionality, and a responsive dark-themed UI.",
-    icon: Music,
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
-    features: [
-      "Audio playback with custom controls",
-      "Playlist creation & management",
-      "Search songs, artists & albums",
-      "Responsive dark-themed UI",
-      "User authentication & favorites",
-    ],
-    github: "https://github.com/Hasnain-jaffer/spotify-clone",
-    live: "https://your-spotify-clone.vercel.app",
-    color: "violet",
-    mockup: "player",
-  },
-  {
-    title: "Country Finder",
-    description:
-      "An interactive country information explorer with search, filtering, detailed country profiles, and REST API integration for real-time data.",
+      "A recipe discovery application that enables users to search, explore, and save recipes with a clean user interface, category filtering, and responsive design powered by external APIs.",
     icon: Globe,
-    technologies: ["React", "REST API", "Tailwind CSS", "React Router"],
-    features: [
-      "Search countries by name",
-      "Filter by region & population",
-      "Detailed country profiles",
-      "REST Countries API integration",
-      "Dark/Light mode toggle",
+    technologies: [
+      "React",
+      "REST API",
+      "Tailwind CSS",
+      "React Router"
     ],
-    github: "https://github.com/Hasnain-jaffer/country-finder",
-    live: "https://your-country-finder.vercel.app",
+    features: [
+      "Recipe search functionality",
+      "Category-based filtering",
+      "Recipe detail pages",
+      "REST API integration",
+      "Responsive interface"
+    ],
+    github: "https://github.com/Hasnain-jaffer/Recipe-Book",
+    live: "https://recipe-book-eosin-kappa.vercel.app/",
     color: "amber",
     mockup: "cards",
+  },
+
+  {
+    title: "Password Manager",
+    description:
+      "A secure password management application that allows users to store, organize, and manage credentials efficiently with an elegant interface and modern frontend architecture.",
+    icon: Link2,
+    technologies: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "Local Storage"
+    ],
+    features: [
+      "Store passwords securely",
+      "Copy credentials instantly",
+      "Edit & delete saved entries",
+      "Responsive modern interface",
+      "Fast client-side performance"
+    ],
+    github: "https://github.com/Hasnain-jaffer/Password-manager",
+    live: "https://password-manager-azure-two.vercel.app/",
+    color: "violet",
+    mockup: "form",
   },
 ] as const;
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Download, ExternalLink, MapPin, Send, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ExternalLink, MapPin, Send, CheckCircle2, XCircle, Loader2, Calendar } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
 
 const contactLinks = [
@@ -135,6 +135,27 @@ export default function Contact() {
               );
             })}
 
+            {/* Book a Call */}
+            <motion.a
+              href="https://calendly.com/hasnainkaim10"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="flex items-center gap-4 p-5 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-white/10 shadow-sm hover:border-amber-300 dark:hover:border-amber-400/30 transition-all cursor-pointer group"
+            >
+              <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 dark:bg-amber-400/10 dark:border-amber-400/20 shrink-0">
+                <Calendar className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              </div>
+              <div className="flex-1">
+                <div className="text-sm text-muted-foreground mb-0.5">Schedule a Call</div>
+                <div className="text-foreground font-semibold">Book a 15-min intro</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-slate-300 dark:text-muted-foreground/50 group-hover:text-muted-foreground transition-colors shrink-0" />
+            </motion.a>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -172,7 +193,7 @@ export default function Contact() {
                   name="name"
                   required
                   disabled={status === "sending"}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-muted/40 border border-slate-200 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all disabled:opacity-50"
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-muted/40 border border-slate-300 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all disabled:opacity-50"
                   placeholder="Your name"
                 />
               </div>
@@ -186,7 +207,7 @@ export default function Contact() {
                   name="email"
                   required
                   disabled={status === "sending"}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-muted/40 border border-slate-200 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all disabled:opacity-50"
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-muted/40 border border-slate-300 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all disabled:opacity-50"
                   placeholder="your@email.com"
                 />
               </div>
@@ -200,7 +221,7 @@ export default function Contact() {
                   required
                   rows={4}
                   disabled={status === "sending"}
-                  className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-muted/40 border border-slate-200 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all resize-none disabled:opacity-50"
+                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-muted/40 border border-slate-300 dark:border-white/10 text-foreground placeholder:text-slate-400 dark:placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all resize-none disabled:opacity-50"
                   placeholder="Your message..."
                 />
               </div>
@@ -248,7 +269,7 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Location */}
+               {/* Location */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

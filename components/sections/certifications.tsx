@@ -54,7 +54,7 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="glass border border-border rounded-2xl p-8 md:p-10 relative overflow-hidden hover:border-emerald-500/30 dark:hover:border-emerald-400/30 transition-colors duration-300"
+              className="bg-white dark:bg-card border border-slate-200 dark:border-white/10 rounded-2xl p-8 md:p-10 relative overflow-hidden hover:border-emerald-300 dark:hover:border-emerald-400/30 transition-colors duration-300 shadow-sm shadow-slate-200/50 dark:shadow-none"
             >
               {/* Decorative Background */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 dark:bg-emerald-400/5" />
@@ -63,10 +63,10 @@ export default function Certifications() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 dark:bg-emerald-400/10 dark:border-emerald-400/20 shrink-0">
+                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-400/10 dark:border-emerald-400/20 shrink-0">
                       <Award className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
                         {cert.title}
                       </h3>
@@ -87,9 +87,9 @@ export default function Certifications() {
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium h-10 px-5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:opacity-90 shadow-lg shadow-emerald-500/20 transition-all shrink-0 group"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold h-10 px-5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:opacity-90 shadow-lg shadow-emerald-500/20 transition-all shrink-0 group"
                   >
-                    <span>View Credential</span>
+                    <span>Verify</span>
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </a>
                 </div>
@@ -99,7 +99,7 @@ export default function Certifications() {
 
                 {/* Skills Covered */}
                 <div>
-                  <h4 className="text-sm font-semibold text-foreground/80 uppercase tracking-wider mb-3">
+                  <h4 className="text-sm font-bold text-foreground/80 uppercase tracking-wider mb-3">
                     Skills Validated
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-2">

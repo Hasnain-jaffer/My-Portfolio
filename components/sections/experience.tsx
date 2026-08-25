@@ -56,70 +56,72 @@ export default function Experience() {
             >
               {/* Timeline rail */}
               <div className="hidden sm:flex flex-col items-center shrink-0 pt-1">
-                <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 border-2 border-emerald-500/30 dark:bg-emerald-400/10 dark:border-emerald-400/30">
-                  <Briefcase className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-500/30">
+                  <Briefcase className="w-6 h-6" />
                 </div>
-                <div className="w-px flex-1 bg-gradient-to-b from-emerald-500/40 to-transparent mt-2" />
+                <div className="w-1 flex-1 bg-gradient-to-b from-emerald-400 via-emerald-300 to-amber-300 rounded-full mt-3" />
               </div>
 
               {/* Content */}
               <div className="flex-1 pb-4">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-1">{exp.company}</h3>
-                    <p className="text-lg text-emerald-600 dark:text-emerald-400 font-medium">{exp.role}</p>
+                <div className="bg-white dark:bg-card rounded-2xl p-6 md:p-8 border border-slate-200 dark:border-white/10 shadow-sm shadow-slate-200/50 dark:shadow-none">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-1">{exp.company}</h3>
+                      <p className="text-lg text-emerald-600 dark:text-emerald-400 font-semibold">{exp.role}</p>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 dark:bg-amber-400/10 dark:border-amber-400/30 text-amber-700 dark:text-amber-400 text-sm font-semibold shrink-0 w-fit">
+                      <Award className="w-4 h-4" />
+                      {exp.award}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 dark:bg-amber-400/10 dark:border-amber-400/30 text-amber-600 dark:text-amber-400 text-sm font-medium shrink-0 w-fit">
-                    <Award className="w-4 h-4" />
-                    {exp.award}
-                  </div>
-                </div>
 
-                <div className="flex flex-wrap gap-4 text-muted-foreground text-sm mb-5">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
-                    <span>{exp.period}</span>
+                  <div className="flex flex-wrap gap-4 text-muted-foreground text-sm mb-5">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4" />
+                      <span>{exp.period}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-4 h-4" />
+                      <span>{exp.location}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4" />
-                    <span>{exp.location}</span>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl">
+                    {exp.description}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    <h4 className="text-sm font-bold text-foreground/80 uppercase tracking-wider">
+                      Key Responsibilities
+                    </h4>
+                    <ul className="space-y-2">
+                      {exp.responsibilities.map((resp, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.1 * i + 0.4 }}
+                          className="flex items-start gap-2 text-muted-foreground text-sm"
+                        >
+                          <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0" />
+                          <span>{resp}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
 
-                <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl">
-                  {exp.description}
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <h4 className="text-sm font-semibold text-foreground/80 uppercase tracking-wider">
-                    Key Responsibilities
-                  </h4>
-                  <ul className="space-y-2">
-                    {exp.responsibilities.map((resp, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 * i + 0.4 }}
-                        className="flex items-start gap-2 text-muted-foreground text-sm"
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center text-xs font-semibold py-1.5 px-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 dark:bg-emerald-400/10 dark:border-emerald-400/15 dark:text-emerald-300"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0" />
-                        <span>{resp}</span>
-                      </motion.li>
+                        {skill}
+                      </span>
                     ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center text-xs font-medium py-1.5 px-3 rounded-lg bg-emerald-500/10 border border-emerald-500/15 text-emerald-700 dark:bg-emerald-400/10 dark:border-emerald-400/15 dark:text-emerald-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  </div>
                 </div>
               </div>
             </motion.div>

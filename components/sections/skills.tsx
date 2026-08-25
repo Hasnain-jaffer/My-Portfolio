@@ -133,8 +133,7 @@ export default function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: catIndex * 0.1 }}
                 whileHover={{ y: -4 }}
-                className={`bg-white dark:bg-card rounded-2xl p-6 border border-slate-200 dark:border-white/10 shadow-sm shadow-slate-200/50 dark:shadow-none hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-2xl dark:hover:shadow-black/20 transition-all duration-300 border-l-4 ${style.leftBorder}`}
-              >
+                className={`bg-white dark:bg-card rounded-2xl p-6 border border-slate-200 dark:border-white/10 shadow-sm shadow-slate-200/50 dark:shadow-none hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-2xl dark:hover:shadow-black/20 transition-all duration-300 border-l-4 ${style.leftBorder}`}              >
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className={`p-2.5 rounded-xl ${style.iconBg} border ${style.iconBorder}`}>

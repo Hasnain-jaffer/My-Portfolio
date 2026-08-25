@@ -10,6 +10,7 @@ import {
   Mail,
   MapPin,
   Sparkles,
+  Flame,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/animated-text";
@@ -62,7 +63,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
-            <span>Available for opportunities</span>
+            <span>Open to Full-Time & Contract Roles</span>
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           </span>
         </motion.div>
@@ -92,10 +93,19 @@ export default function Hero() {
         {/* Location */}
         <motion.div
           variants={itemVariants}
-          className="flex items-center justify-center gap-1.5 text-muted-foreground text-sm mb-8"
+          className="flex items-center justify-center gap-1.5 text-muted-foreground text-sm mb-6"
         >
           <MapPin className="w-3.5 h-3.5" />
-          <span>Based in Pakistan · Available Worldwide (Remote)</span>
+          <span>Remote Worldwide · Based in Pakistan</span>
+        </motion.div>
+
+        {/* Currently Learning */}
+        <motion.div
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-medium text-muted-foreground mb-8"
+        >
+          <Flame className="w-3.5 h-3.5 text-amber-500" />
+          <span>Currently learning: <span className="text-foreground font-semibold">System Design</span> · <span className="text-foreground font-semibold">AWS</span></span>
         </motion.div>
 
         {/* Description */}
@@ -103,10 +113,9 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Full Stack Developer specializing in the MERN Stack. I build scalable,
-          high-performance web applications using React, Node.js, MongoDB, and
-          modern cloud deployment — currently open to full-time and freelance
-          opportunities.
+          Final-year BSIT student and Full Stack Developer specializing in the MERN Stack. 
+          I build production-grade web applications with React, Node.js, and MongoDB — 
+          currently open to full-time and freelance opportunities.
         </motion.p>
 
         {/* CTA Buttons */}

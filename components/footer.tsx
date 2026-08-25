@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border bg-background/50 backdrop-blur-sm">
+    <footer className="border-t border-slate-200 dark:border-white/10 bg-background/50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Copyright */}
@@ -24,10 +24,10 @@ export default function Footer() {
             className="flex flex-col items-center md:items-start gap-2"
           >
             <div className="flex items-center gap-2 text-foreground font-bold text-lg">
-              <div className="p-1.5 rounded-lg bg-gradient-to-br from-emerald-500 to-amber-500">
-                <Code2 className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white font-bold text-xs">
+                HJ
               </div>
-              <span>Portfolio</span>
+              <span>Hasnain Jaffer</span>
             </div>
             <p className="text-muted-foreground text-sm">
               &copy; {currentYear} Hasnain Jaffer. All rights reserved.
@@ -47,7 +47,7 @@ export default function Footer() {
                 key={social.label}
                 href={social.href}
                 {...(social.label === "Email" ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-                className="p-2.5 rounded-xl glass text-muted-foreground hover:text-emerald-600 hover:bg-emerald-500/10 dark:hover:text-emerald-400 dark:hover:bg-emerald-400/10 transition-all duration-300 border border-border/50"
+                className="p-2.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-muted-foreground hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 dark:hover:text-emerald-400 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10 transition-all duration-300 shadow-sm"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />

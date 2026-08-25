@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, BookOpen, Briefcase, GraduationCap, Target, Zap } from "lucide-react";
+import { Award, BookOpen, Briefcase, GraduationCap, Target, Zap, School } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
 
 const highlights = [
@@ -66,7 +66,25 @@ export default function About() {
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-amber-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Education Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto mb-12"
+        >
+          <div className="flex flex-col sm:flex-row items-center gap-4 p-5 rounded-2xl bg-white dark:bg-card border border-slate-200 dark:border-white/10 shadow-sm">
+            <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-400/10 dark:border-emerald-400/20">
+              <School className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="font-bold text-foreground">BS Information Technology (Final Year)</div>
+              <div className="text-sm text-muted-foreground">2022 — 2026 · Relevant: Data Structures, DBMS, Software Engineering</div>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Bio */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -109,7 +127,7 @@ export default function About() {
 
               <div className="flex items-center gap-2 pt-2">
                 <Zap className="w-5 h-5 text-amber-500 dark:text-amber-400" />
-                <span className="text-foreground/80 text-sm font-medium">
+                <span className="text-foreground/80 text-sm font-semibold">
                   Currently seeking MERN Stack & Full Stack Developer opportunities
                 </span>
               </div>

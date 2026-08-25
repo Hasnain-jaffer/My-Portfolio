@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
@@ -70,14 +70,14 @@ export default function Navbar() {
                 e.preventDefault();
                 scrollTo("#hero");
               }}
-              className="flex items-center gap-2 text-foreground font-heading font-bold text-lg"
+              className="flex items-center gap-3 text-foreground font-heading font-bold text-lg"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="p-1.5 rounded-lg bg-gradient-to-br from-emerald-500 to-amber-500">
-                <Code2 className="w-4 h-4 text-white" />
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-emerald-500/20">
+                HJ
               </div>
-              <span className="hidden sm:inline">Portfolio</span>
+              <span className="hidden sm:inline">Hasnain Jaffer</span>
             </motion.a>
 
             {/* Desktop Nav */}
@@ -88,7 +88,7 @@ export default function Navbar() {
                   onClick={() => scrollTo(link.href)}
                   className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     activeSection === link.href.slice(1)
-                      ? "text-emerald-500"
+                      ? "text-emerald-600 dark:text-emerald-400"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -96,7 +96,7 @@ export default function Navbar() {
                   {activeSection === link.href.slice(1) && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute inset-0 rounded-lg bg-emerald-500/10 border border-emerald-500/20"
+                      className="absolute inset-0 rounded-lg bg-emerald-500/10 border border-emerald-500/20 dark:bg-emerald-400/10 dark:border-emerald-400/20"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -139,7 +139,7 @@ export default function Navbar() {
                     onClick={() => scrollTo(link.href)}
                     className={`px-4 py-3 rounded-xl text-sm font-medium text-left transition-colors ${
                       activeSection === link.href.slice(1)
-                        ? "bg-emerald-500/10 text-emerald-500"
+                        ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
                         : "text-foreground/70 hover:bg-white/5 hover:text-foreground"
                     }`}
                   >

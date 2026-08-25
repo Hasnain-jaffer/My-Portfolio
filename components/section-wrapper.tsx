@@ -8,7 +8,6 @@ interface SectionWrapperProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  /** Alternate subtle background tint so consecutive sections aren't visually identical */
   tone?: "base" | "elevated";
 }
 
@@ -27,12 +26,10 @@ export default function SectionWrapper({
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
         "relative py-20 md:py-28 px-4 sm:px-6 lg:px-8",
-        tone === "elevated" && "bg-muted/20",
+        tone === "elevated" && "surface-elevated",
         className
       )}
     >
-      {/* subtle top border seam so each section reads as distinct on scroll */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       {children}
     </motion.section>
   );

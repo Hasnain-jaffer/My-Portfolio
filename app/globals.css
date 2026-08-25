@@ -3,65 +3,63 @@
 @tailwind utilities;
 
 @layer base {
+  /* ─── LIGHT THEME: Crisp, professional, layered ─── */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%;            /* #ffffff */
+    --foreground: 160 18% 10%;          /* #141a18 near-black */
+    --card: 0 0% 100%;                  /* #ffffff */
+    --card-foreground: 160 18% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --popover-foreground: 160 18% 10%;
+
+    --primary: 158 64% 42%;             /* #10b981 emerald */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 38 92% 50%;            /* #f59e0b amber */
+    --secondary-foreground: 160 18% 10%;
+
+    --muted: 210 18% 96%;               /* #f1f5f9 cool gray */
+    --muted-foreground: 160 8% 40%;     /* #5e7368 */
+
+    --accent: 35 60% 55%;
+    --accent-foreground: 160 18% 10%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 90%;              /* #e2e8f0 slate-200 */
+    --input: 220 12% 92%;
+    --ring: 158 64% 42%;
     --radius: 0.75rem;
   }
 
-  /* ---- NEW DARK THEME: layered depth + dual accent ---- */
+  /* ─── DARK THEME: Deep warm charcoal ─── */
   .dark {
-    /* base is near-black navy, NOT the same as cards */
-    --background: 224 47% 5%;        /* ~ #070a12 */
-    --foreground: 210 40% 96%;
+    --background: 160 20% 5%;
+    --foreground: 40 20% 96%;
+    --card: 160 15% 9%;
+    --card-foreground: 40 20% 96%;
+    --popover: 160 15% 9%;
+    --popover-foreground: 40 20% 96%;
 
-    /* card sits one clear step above background */
-    --card: 222 40% 9%;              /* ~ #10141f */
-    --card-foreground: 210 40% 96%;
+    --primary: 158 70% 55%;
+    --primary-foreground: 160 20% 5%;
 
-    --popover: 222 40% 9%;
-    --popover-foreground: 210 40% 96%;
+    --secondary: 38 92% 60%;
+    --secondary-foreground: 160 20% 5%;
 
-    /* Primary accent: electric cyan/blue (your existing brand) */
-    --primary: 199 89% 58%;          /* vivid sky blue */
-    --primary-foreground: 222 47% 6%;
+    --muted: 160 12% 14%;
+    --muted-foreground: 160 10% 60%;
 
-    /* Secondary accent: warm violet — gives contrast against cyan */
-    --secondary: 262 60% 62%;
-    --secondary-foreground: 210 40% 98%;
-
-    /* muted = subtle elevated surface, clearly lighter than card */
-    --muted: 222 30% 14%;            /* ~ #181e2c */
-    --muted-foreground: 215 20% 68%;
-
-    /* accent = amber, used sparingly for highlights/badges */
-    --accent: 38 92% 60%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 35 60% 55%;
+    --accent-foreground: 160 20% 5%;
 
     --destructive: 0 72% 55%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 40 20% 96%;
 
-    /* borders visible against card, not invisible */
-    --border: 222 25% 20%;           /* ~ #262e42 */
-    --input: 222 25% 18%;
-    --ring: 199 89% 58%;
+    --border: 160 12% 18%;
+    --input: 160 12% 16%;
+    --ring: 158 70% 55%;
   }
 }
 
@@ -70,15 +68,13 @@
     @apply border-border;
   }
   body {
-  @apply bg-background text-foreground font-body overflow-x-hidden;
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-  /* Apply heading font to all heading tags automatically — no per-component edits needed */
+    @apply bg-background text-foreground font-body overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
@@ -89,18 +85,27 @@ html {
     text-wrap: balance;
   }
 
+  /* ─── Glass: Real card in light, frosted in dark ─── */
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-white border border-slate-200 shadow-sm shadow-slate-200/50 backdrop-blur-sm;
   }
+  .dark .glass {
+    @apply bg-white/5 border border-white/10 shadow-none backdrop-blur-xl;
+  }
+
   .glass-dark {
     @apply bg-black/30 backdrop-blur-xl border border-white/5;
   }
 
-  /* Two-tone gradient text: cyan -> violet instead of cyan monotone */
+  /* ─── Gradient text ─── */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-cyan-300 to-violet-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-500;
+  }
+  .dark .gradient-text {
+    @apply bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400;
   }
 
+  /* ─── Gradient border ─── */
   .gradient-border {
     position: relative;
   }
@@ -110,32 +115,69 @@ html {
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.6), rgba(167, 139, 250, 0.5));
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(245, 158, 11, 0.4));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
   }
-
-  /* NEW: elevated card surface for hover/active states */
-  .surface-elevated {
-    @apply bg-muted/60 border border-white/10;
+  .dark .gradient-border::before {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.6), rgba(251, 191, 36, 0.5));
   }
 
-  /* NEW: hero background glow */
-.hero-glow {
-  background:
-    radial-gradient(900px circle at 12% 15%, rgba(56, 189, 248, 0.22), transparent 55%),
-    radial-gradient(800px circle at 88% 20%, rgba(167, 139, 250, 0.20), transparent 55%),
-    radial-gradient(1000px circle at 50% 95%, rgba(56, 189, 248, 0.12), transparent 60%),
-    radial-gradient(600px circle at 50% 45%, rgba(251, 191, 36, 0.07), transparent 60%);
-}
+  /* ─── Elevated surface ─── */
+  .surface-elevated {
+    @apply bg-slate-50 border-t border-b border-slate-200/80;
+  }
+  .dark .surface-elevated {
+    @apply bg-muted/40 border-t border-b border-white/5;
+  }
 
-  /* NEW: subtle grid pattern for hero/sections */
+  /* ─── Hero glow: whisper in light, bold in dark ─── */
+  .hero-glow {
+    background:
+      radial-gradient(500px circle at 15% 15%, rgba(16, 185, 129, 0.05), transparent 60%),
+      radial-gradient(400px circle at 85% 25%, rgba(245, 158, 11, 0.04), transparent 60%);
+  }
+  .dark .hero-glow {
+    background:
+      radial-gradient(900px circle at 12% 15%, rgba(52, 211, 153, 0.18), transparent 55%),
+      radial-gradient(800px circle at 88% 20%, rgba(251, 191, 36, 0.15), transparent 55%),
+      radial-gradient(1000px circle at 50% 95%, rgba(52, 211, 153, 0.10), transparent 60%),
+      radial-gradient(600px circle at 50% 45%, rgba(251, 191, 36, 0.06), transparent 60%);
+  }
+
+  /* ─── Grid: hidden in light, subtle in dark ─── */
   .bg-grid {
+    background-image: none;
+  }
+  .dark .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+
+  .section-fade {
+    @apply transition-colors duration-500;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
 }

@@ -24,7 +24,9 @@ export default function Footer() {
             className="flex flex-col items-center md:items-start gap-2"
           >
             <div className="flex items-center gap-2 text-foreground font-bold text-lg">
-              <Code2 className="w-5 h-5 text-primary" />
+              <div className="p-1.5 rounded-lg bg-gradient-to-br from-emerald-500 to-amber-500">
+                <Code2 className="w-4 h-4 text-white" />
+              </div>
               <span>Portfolio</span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -38,15 +40,14 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex items-center gap-4"
+            className="flex items-center gap-3"
           >
             {socials.map((social) => (
               <a
-              
                 key={social.label}
                 href={social.href}
                 {...(social.label === "Email" ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-                className="p-2.5 rounded-lg glass border border-border text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                className="p-2.5 rounded-xl glass text-muted-foreground hover:text-emerald-600 hover:bg-emerald-500/10 dark:hover:text-emerald-400 dark:hover:bg-emerald-400/10 transition-all duration-300 border border-border/50"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />

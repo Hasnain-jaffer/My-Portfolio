@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Award, Calendar, MapPin, CheckCircle2, Briefcase } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
-import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
@@ -29,19 +28,20 @@ export default function Experience() {
   return (
     <SectionWrapper id="experience">
       <div className="max-w-4xl mx-auto">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Experience
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Work Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-amber-500 mx-auto rounded-full" />
         </motion.div>
 
         <div className="space-y-12">
@@ -56,20 +56,20 @@ export default function Experience() {
             >
               {/* Timeline rail */}
               <div className="hidden sm:flex flex-col items-center shrink-0 pt-1">
-                <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/30">
-                  <Briefcase className="w-6 h-6 text-primary" />
+                <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 border-2 border-emerald-500/30 dark:bg-emerald-400/10 dark:border-emerald-400/30">
+                  <Briefcase className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <div className="w-px flex-1 bg-gradient-to-b from-primary/40 to-transparent mt-2" />
+                <div className="w-px flex-1 bg-gradient-to-b from-emerald-500/40 to-transparent mt-2" />
               </div>
 
-              {/* Content — no card wrapper, flows in open space */}
+              {/* Content */}
               <div className="flex-1 pb-4">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-1">{exp.company}</h3>
-                    <p className="text-lg text-primary font-medium">{exp.role}</p>
+                    <p className="text-lg text-emerald-600 dark:text-emerald-400 font-medium">{exp.role}</p>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent text-sm font-medium shrink-0 w-fit">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 dark:bg-amber-400/10 dark:border-amber-400/30 text-amber-600 dark:text-amber-400 text-sm font-medium shrink-0 w-fit">
                     <Award className="w-4 h-4" />
                     {exp.award}
                   </div>
@@ -104,7 +104,7 @@ export default function Experience() {
                         transition={{ delay: 0.1 * i + 0.4 }}
                         className="flex items-start gap-2 text-muted-foreground text-sm"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0" />
                         <span>{resp}</span>
                       </motion.li>
                     ))}
@@ -113,9 +113,12 @@ export default function Experience() {
 
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill) => (
-                    <Badge key={skill} variant="tech">
+                    <span
+                      key={skill}
+                      className="inline-flex items-center text-xs font-medium py-1.5 px-3 rounded-lg bg-emerald-500/10 border border-emerald-500/15 text-emerald-700 dark:bg-emerald-400/10 dark:border-emerald-400/15 dark:text-emerald-300"
+                    >
                       {skill}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>

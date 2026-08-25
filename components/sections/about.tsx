@@ -9,43 +9,40 @@ const highlights = [
     icon: GraduationCap,
     title: "Final-Year BSIT",
     description: "Pursuing Bachelor of Science in Information Technology, building a strong foundation in software engineering.",
-    accent: "primary",
+    accent: "emerald",
   },
   {
     icon: Briefcase,
     title: "DevelopersHub Corp",
     description: "Completed internship at DevelopersHub Corporation, recognized with the Best Award for outstanding performance.",
-    accent: "secondary",
+    accent: "amber",
   },
   {
     icon: Award,
     title: "IBM Certified",
     description: "IBM Full Stack Software Developer Professional Certificate holder, validating expertise across the full stack.",
-    accent: "accent",
+    accent: "emerald",
   },
   {
     icon: Target,
     title: "Passion Driven",
     description: "Passionate about scalable backend systems, cloud technologies, AI integration, and modern web development.",
-    accent: "primary",
+    accent: "amber",
   },
 ] as const;
 
 const accentClasses = {
-  primary: {
-    iconBg: "bg-primary/10 border-primary/20 group-hover:bg-primary/20",
-    icon: "text-primary",
-    hoverBorder: "hover:border-primary/30",
+  emerald: {
+    iconBg: "bg-emerald-50 border-emerald-200 group-hover:bg-emerald-100 dark:bg-emerald-400/10 dark:border-emerald-400/20 dark:group-hover:bg-emerald-400/20",
+    icon: "text-emerald-600 dark:text-emerald-400",
+    hoverBorder: "hover:border-emerald-300 dark:hover:border-emerald-400/30",
+    topBorder: "border-t-emerald-400 dark:border-t-emerald-400",
   },
-  secondary: {
-    iconBg: "bg-secondary/10 border-secondary/20 group-hover:bg-secondary/20",
-    icon: "text-secondary",
-    hoverBorder: "hover:border-secondary/30",
-  },
-  accent: {
-    iconBg: "bg-accent/10 border-accent/20 group-hover:bg-accent/20",
-    icon: "text-accent",
-    hoverBorder: "hover:border-accent/30",
+  amber: {
+    iconBg: "bg-amber-50 border-amber-200 group-hover:bg-amber-100 dark:bg-amber-400/10 dark:border-amber-400/20 dark:group-hover:bg-amber-400/20",
+    icon: "text-amber-600 dark:text-amber-400",
+    hoverBorder: "hover:border-amber-300 dark:hover:border-amber-400/30",
+    topBorder: "border-t-amber-400 dark:border-t-amber-400",
   },
 };
 
@@ -60,13 +57,13 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             About Me
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             My Story
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-amber-500 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -78,12 +75,12 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="glass rounded-2xl p-8 space-y-6 border border-border">
+            <div className="bg-white dark:bg-card rounded-2xl p-8 space-y-6 border border-slate-200 dark:border-white/10 shadow-sm shadow-slate-200/50 dark:shadow-none border-t-4 border-t-emerald-400 dark:border-t-emerald-400">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20">
-                  <BookOpen className="w-6 h-6 text-primary" />
+                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 dark:bg-emerald-400/10 dark:border-emerald-400/20">
+                  <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Who I Am</h3>
+                <h3 className="text-xl font-bold text-foreground">Who I Am</h3>
               </div>
 
               <p className="text-muted-foreground leading-relaxed">
@@ -95,27 +92,24 @@ export default function About() {
 
               <p className="text-muted-foreground leading-relaxed">
                 During my internship at{" "}
-                <span className="text-primary font-medium">DevelopersHub Corporation</span>,
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">DevelopersHub Corporation</span>,
                 I was recognized with the{" "}
-                <span className="text-emerald-400 font-medium">Best Award</span> for my
+                <span className="text-amber-600 dark:text-amber-400 font-semibold">Best Award</span> for my
                 contributions and dedication. This experience solidified my commitment to
-                writing clean, production-ready code and collaborating effectively in team
-                environments.
+                writing clean, production-ready code.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
                 I hold the{" "}
-                <span className="text-secondary font-medium">
+                <span className="text-amber-600 dark:text-amber-400 font-semibold">
                   IBM Full Stack Software Developer Professional Certificate
                 </span>
-                , which validates my expertise across frontend, backend, databases, and
-                deployment. I am continuously expanding my knowledge in cloud technologies,
-                AI integration, and system architecture design.
+                , validating my expertise across frontend, backend, databases, and deployment.
               </p>
 
               <div className="flex items-center gap-2 pt-2">
-                <Zap className="w-5 h-5 text-accent" />
-                <span className="text-foreground/80 text-sm">
+                <Zap className="w-5 h-5 text-amber-500 dark:text-amber-400" />
+                <span className="text-foreground/80 text-sm font-medium">
                   Currently seeking MERN Stack & Full Stack Developer opportunities
                 </span>
               </div>
@@ -140,12 +134,12 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className={`glass border border-border rounded-xl p-6 group transition-all duration-300 ${colors.hoverBorder}`}
+                  className={`bg-white dark:bg-card border border-slate-200 dark:border-white/10 rounded-xl p-6 group transition-all duration-300 shadow-sm shadow-slate-200/50 dark:shadow-none hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-2xl dark:hover:shadow-black/20 ${colors.hoverBorder} border-t-4 ${colors.topBorder}`}
                 >
                   <div className={`p-2.5 rounded-lg border w-fit mb-4 transition-colors ${colors.iconBg}`}>
                     <item.icon className={`w-5 h-5 ${colors.icon}`} />
                   </div>
-                  <h4 className="text-foreground font-semibold mb-2">{item.title}</h4>
+                  <h4 className="text-foreground font-bold mb-2">{item.title}</h4>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                 </motion.div>
               );

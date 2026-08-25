@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Hasnain Jaffer" }],
   openGraph: {
-    title: "Full Stack Developer | MERN Stack & React Specialist",
+    title: "Hasnain Jaffer | Full Stack Developer | MERN Stack & React Specialist",
     description:
       "Final-year BSIT student and Full Stack Developer specializing in MERN Stack, React, and modern web technologies.",
     type: "website",
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Full Stack Developer | MERN Stack & React Specialist",
+    title: "Hasnain Jaffer | Full Stack Developer",
     description:
       "Final-year BSIT student and Full Stack Developer specializing in MERN Stack, React, and modern web technologies.",
   },
@@ -62,11 +65,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${jakarta.variable} ${inter.variable} font-body antialiased bg-background text-foreground overflow-x-hidden`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

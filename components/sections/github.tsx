@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, GitBranch, Star, Users, Calendar, Loader2 } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
-import { Button } from "@/components/ui/button";
 
-const GITHUB_USERNAME = "Hasnain-Jaffer"; // ⚠️ confirm exact casing matches your GitHub URL
+const GITHUB_USERNAME = "Hasnain-Jaffer";
 
 interface GitHubStats {
   publicRepos: number;
@@ -18,15 +17,23 @@ interface GitHubStats {
 interface ContributionDay {
   date: string;
   count: number;
-  level: number; // 0-4, jogruber API provides this directly
+  level: number;
 }
 
-const levelColors = [
-  "bg-muted",
-  "bg-emerald-900/50",
-  "bg-emerald-800/60",
-  "bg-emerald-700/70",
-  "bg-emerald-500/80",
+const levelColorsLight = [
+  "bg-gray-100",        /* empty — clean light gray, not muddy stone */
+  "bg-emerald-200",     /* low */
+  "bg-emerald-300",     /* medium-low */
+  "bg-emerald-400",     /* medium */
+  "bg-emerald-500",     /* high */
+];
+
+const levelColorsDark = [
+  "bg-stone-800",
+  "bg-emerald-900/60",
+  "bg-emerald-800/70",
+  "bg-emerald-700/80",
+  "bg-emerald-500/90",
 ];
 
 export default function GitHubStats() {
@@ -34,37 +41,45 @@ export default function GitHubStats() {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-   async function fetchGitHubData() {
-  try {
-    setLoading(true);
-    setError(false);
+    const checkDark = () => setIsDark(document.documentElement.classList.contains("dark"));
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
-    const res = await fetch("/api/github-stats");
-    const data = await res.json();
+  useEffect(() => {
+    async function fetchGitHubData() {
+      try {
+        setLoading(true);
+        setError(false);
 
-    if (!res.ok) throw new Error(data.error || "Failed to fetch");
+        const res = await fetch("/api/github-stats");
+        const data = await res.json();
 
-    setStats({
-      publicRepos: data.publicRepos,
-      followers: data.followers,
-      totalStars: data.totalStars,
-      totalContributions: data.totalContributions,
-    });
-    setContributions(data.contributions);
-  } catch (err) {
-    console.error("GitHub stats fetch error:", err);
-    setError(true);
-  } finally {
-    setLoading(false);
-  }
-}
+        if (!res.ok) throw new Error(data.error || "Failed to fetch");
+
+        setStats({
+          publicRepos: data.publicRepos,
+          followers: data.followers,
+          totalStars: data.totalStars,
+          totalContributions: data.totalContributions,
+        });
+        setContributions(data.contributions);
+      } catch (err) {
+        console.error("GitHub stats fetch error:", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
 
     fetchGitHubData();
   }, []);
 
-  // Group last ~12 weeks x 7 days for the mini heatmap (last ~84 days keeps it compact and readable)
   const recentDays = contributions.slice(-84);
   const weeks: ContributionDay[][] = [];
   for (let i = 0; i < recentDays.length; i += 7) {
@@ -78,6 +93,8 @@ export default function GitHubStats() {
     { label: "Contributions (yr)", value: stats?.totalContributions ?? "—", icon: Calendar },
   ];
 
+  const levelColors = isDark ? levelColorsDark : levelColorsLight;
+
   return (
     <SectionWrapper id="github" tone="elevated">
       <div className="max-w-5xl mx-auto">
@@ -88,13 +105,13 @@ export default function GitHubStats() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Open Source
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             GitHub Activity
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
+          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-amber-500 mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Live data pulled directly from my GitHub profile
           </p>
@@ -111,32 +128,41 @@ export default function GitHubStats() {
             <img
               src="/images/Profile Pic.png"
               alt="Hasnain-jaffer"
-              className="w-24 h-24 rounded-full object-cover border-2 border-primary/30"
+              className="w-24 h-24 rounded-full object-cover border-2 border-emerald-500/30 dark:border-emerald-400/30"
             />
             <div className="text-center md:text-left">
               <h3 className="text-2xl font-bold text-foreground mb-1">@{GITHUB_USERNAME}</h3>
               <p className="text-muted-foreground mb-4">Full Stack Developer | MERN Stack Enthusiast</p>
-              <Button
-                variant="gradient"
-                size="sm"
-                className="group"
-                onClick={() => window.open(`https://github.com/${GITHUB_USERNAME}`, "_blank")}
+              <a
+                href={`https://github.com/${GITHUB_USERNAME}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium h-10 px-5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:opacity-90 shadow-lg shadow-emerald-500/20 transition-all group"
               >
-                <Github className="w-4 h-4 mr-2" />
+                <Github className="w-4 h-4" />
                 View Profile
-              </Button>
+                <svg
+                  className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </a>
             </div>
           </div>
 
           {error && (
-            <div className="text-center text-sm text-muted-foreground py-6 border border-border rounded-xl mb-8">
+            <div className="text-center text-sm text-muted-foreground py-6 border border-border rounded-xl mb-8 bg-muted/30">
               Couldn't load live GitHub data right now — check back shortly, or view the profile directly above.
             </div>
           )}
 
           {loading && !error && (
             <div className="flex items-center justify-center gap-2 text-muted-foreground py-10">
-              <Loader2 className="w-5 h-5 animate-spin" />
+              <Loader2 className="w-5 h-5 animate-spin text-emerald-500" />
               <span className="text-sm">Loading live stats…</span>
             </div>
           )}
@@ -152,9 +178,9 @@ export default function GitHubStats() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="glass border border-border rounded-xl p-4 text-center"
+                    className="glass border border-border rounded-xl p-4 text-center hover:border-emerald-500/20 dark:hover:border-emerald-400/20 transition-colors"
                   >
-                    <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
+                    <stat.icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
                     <div className="text-2xl font-bold text-foreground mb-1">
                       {typeof stat.value === "number" ? stat.value.toLocaleString() : stat.value}
                     </div>
@@ -187,12 +213,12 @@ export default function GitHubStats() {
                   ))}
                 </div>
                 <div className="flex items-center justify-end gap-2 mt-3 text-xs text-muted-foreground">
-                  <span>Less</span>
-                  {levelColors.map((color, i) => (
-                    <div key={i} className={`w-3 h-3 rounded-sm ${color}`} />
-                  ))}
-                  <span>More</span>
-                </div>
+  <span>Less</span>
+  {levelColors.map((color, i) => (
+    <div key={i} className={`w-3 h-3 rounded-sm ${color} border border-black/5`} />
+  ))}
+  <span>More</span>
+</div>
               </div>
             </>
           )}

@@ -1,10 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Layers, ShoppingCart, Link2, Globe } from "lucide-react";
+import { Github, ExternalLink, Layers, ShoppingCart, MapPin, Globe, Navigation } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
 
 const projectList = [
+  {
+    title: "My Campus Ride",
+    description:
+      "A real-time GPS fleet and asset tracking system built with WebSocket technology, featuring live map visualization, geofencing boundaries, and comprehensive route analytics for campus transportation management.",
+    impact: "Live location tracking with sub-second latency via Socket.io",
+    icon: Navigation,
+    technologies: ["React", "Node.js", "Express.js", "Socket.io", "MongoDB", "Leaflet.js", "Tailwind CSS"],
+    features: [
+      "Real-time GPS tracking with live map updates",
+      "Geofencing with entry and exit alerts",
+      "Historical route analytics and playback",
+      "Fleet management dashboard",
+      "Responsive map interface with Leaflet.js",
+    ],
+    github: "https://github.com/Hasnain-jaffer/Real-Time-Device-Tracker",
+    live: "https://real-time-device-tracker-two.vercel.app",
+    accent: "emerald" as const,
+  },
   {
     title: "Shopzone",
     description:
@@ -77,24 +95,6 @@ const projectList = [
     live: "https://recipe-book-eosin-kappa.vercel.app/",
     accent: "amber" as const,
   },
-  {
-    title: "Password Manager",
-    description:
-      "A secure password management application that allows users to store, organize, and manage credentials efficiently with an elegant interface.",
-    impact: "Zero-dependency client-side encryption approach",
-    icon: Link2,
-    technologies: ["React", "JavaScript", "Tailwind CSS", "Local Storage"],
-    features: [
-      "Store passwords securely",
-      "Copy credentials instantly",
-      "Edit & delete saved entries",
-      "Responsive modern interface",
-      "Fast client-side performance",
-    ],
-    github: "https://github.com/Hasnain-jaffer/Password-manager",
-    live: "https://password-manager-azure-two.vercel.app/",
-    accent: "emerald" as const,
-  },
 ];
 
 const accentStyles = {
@@ -155,7 +155,7 @@ export default function Projects() {
                 whileHover={{ y: -6 }}
                 className={`group bg-white dark:bg-card rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-sm shadow-slate-200/50 dark:shadow-none hover:shadow-xl hover:shadow-slate-200/60 dark:hover:shadow-2xl dark:hover:shadow-black/20 transition-all duration-500 border-t-4 ${style.topBorder}`}
               >
-                {/* Project Mockup — Abstract colored background */}
+                {/* Project Mockup */}
                 <div className={`relative h-48 ${style.mockupBg} p-6 overflow-hidden flex items-center justify-center`}>
                   <project.icon className={`w-20 h-20 ${style.mockupIcon} group-hover:scale-110 transition-transform duration-500`} />
                   <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-card to-transparent" />

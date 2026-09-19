@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Github, GitBranch, Star, Users, Calendar } from "lucide-react";
 import SectionWrapper from "@/components/section-wrapper";
 
-const GITHUB_USERNAME = "Hasnain-Jaffer";
+const GITHUB_USERNAME = "Hasnain-jaffer";
 
 interface GitHubStats {
   publicRepos: number;

@@ -7,9 +7,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socials = [
-    { icon: Github, href: "https://github.com/Hasnain-Jaffer", label: "GitHub" },
+    { icon: Github, href: "https://github.com/Hasnain-jaffer", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/hasnain-jaffer-dev", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:hasnainkaim10@gmail.com", label: "Email" },
+    { icon: Mail, href: "mailto:hasnainkaimi10@gmail.com", label: "Email" },
   ];
 
   return (

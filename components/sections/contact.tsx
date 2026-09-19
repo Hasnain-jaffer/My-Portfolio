@@ -10,16 +10,16 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "hasnainkaim10@gmail.com",
-    href: "mailto:hasnainkaim10@gmail.com",
+    value: "hasnainkaimi10@gmail.com",
+    href: "mailto:hasnainkaimi10@gmail.com",
     isMailto: true,
     accent: "emerald" as const,
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/Hasnain-Jaffer",
-    href: "https://github.com/Hasnain-Jaffer",
+    value: "github.com/Hasnain-jaffer",
+    href: "https://github.com/Hasnain-jaffer",
     isMailto: false,
     accent: "amber" as const,
   },
@@ -137,7 +137,7 @@ export default function Contact() {
 
             {/* Book a Call */}
             <motion.a
-              href="https://calendly.com/hasnainkaim10"
+              href="https://calendly.com/hasnainkaimi10"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}

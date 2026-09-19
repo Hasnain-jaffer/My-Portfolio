@@ -151,9 +151,9 @@ export default function Hero() {
           className="flex items-center justify-center gap-3"
         >
           {[
-            { href: "https://github.com/Hasnain-Jaffer", icon: Github, label: "GitHub", color: "hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 dark:hover:text-emerald-400 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10" },
+            { href: "https://github.com/Hasnain-jaffer", icon: Github, label: "GitHub", color: "hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 dark:hover:text-emerald-400 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10" },
             { href: "https://linkedin.com/in/hasnain-jaffer-dev", icon: Linkedin, label: "LinkedIn", color: "hover:text-amber-600 hover:border-amber-300 hover:bg-amber-50 dark:hover:text-amber-400 dark:hover:border-amber-500/30 dark:hover:bg-amber-500/10" },
-            { href: "mailto:hasnainkaim10@gmail.com", icon: Mail, label: "Email", color: "hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 dark:hover:text-emerald-400 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10" },
+            { href: "mailto:hasnainkaimi10@gmail.com", icon: Mail, label: "Email", color: "hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 dark:hover:text-emerald-400 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10" },
           ].map((social) => (
             <motion.a
               key={social.label}
